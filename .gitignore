@@ -13,6 +13,5 @@ pubspec.lock
 doc/api/
 jazb/ios/
 jazb/android/
-jazb/lib/
 jazb/test/
 
