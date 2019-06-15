@@ -2,17 +2,17 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-class ProductPage extends StatelessWidget {
+class RestaurantPage extends StatelessWidget {
   final String title;
   final String imageUrl;
+  final String imgTag;
 
-  ProductPage(this.title, this.imageUrl);
+  RestaurantPage(this.title, this.imageUrl, this.imgTag);
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () {
-        print('Back button pressed!');
         Navigator.pop(context, false);
         return Future.value(false);
       },
@@ -23,7 +23,10 @@ class ProductPage extends StatelessWidget {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Image.asset(imageUrl),
+            Hero(
+              tag: imgTag,
+              child: Image.asset(imageUrl),
+            ),
             Container(
               padding: EdgeInsets.all(10.0),
               child: Text(title),
