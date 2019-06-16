@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jazb/pages/list_places_page.dart';
 
 class CategoryPage extends StatelessWidget {
   final List<Map<String, String>> _infos = [
@@ -8,23 +9,32 @@ class CategoryPage extends StatelessWidget {
   ];
 
   Widget _categoryItemBuilder(BuildContext context, int index) {
-    return Padding(
-      padding: EdgeInsets.all(20.0),
-      child: Stack(
-        alignment: Alignment.bottomLeft,
-        children: <Widget>[
-          new ClipRRect(
-            borderRadius: new BorderRadius.circular(20),
-            child: Image.asset(_infos[index]['img']),
-          ),
-          Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Text(
-              _infos[index]['name'],
-              style: TextStyle(fontSize: 35, color: Colors.white),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (BuildContext context) =>
+                    ListPlacesPage(_infos[index]['name'])));
+      },
+      child: Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Stack(
+          alignment: Alignment.bottomLeft,
+          children: <Widget>[
+            new ClipRRect(
+              borderRadius: new BorderRadius.circular(20),
+              child: Image.asset(_infos[index]['img']),
             ),
-          ),
-        ],
+            Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text(
+                _infos[index]['name'],
+                style: TextStyle(fontSize: 35, color: Colors.white),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

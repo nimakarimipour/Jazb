@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 
 import '../restaurant_manager.dart';
 
-class RestaurantsPage extends StatelessWidget {
+class ListPlacesPage extends StatelessWidget {
+  final String type;
+
+  ListPlacesPage(this.type);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('EasyList'),
+        title: Text(type),
       ),
       body: RestaurantManager(),
     );

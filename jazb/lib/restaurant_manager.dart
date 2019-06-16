@@ -6,13 +6,10 @@ import './restaurant_control.dart';
 class RestaurantManager extends StatefulWidget {
   final Map<String, String> startingRestaurant;
 
-  RestaurantManager({this.startingRestaurant}) {
-
-  }
+  RestaurantManager({this.startingRestaurant});
 
   @override
   State<StatefulWidget> createState() {
-
     return _RestaurantManagerState();
   }
 }

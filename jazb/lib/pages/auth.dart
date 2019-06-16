@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jazb/pages/category.dart';
 
-import './restaurants.dart';
+import './list_places_page.dart';
 
 class AuthPage extends StatelessWidget {
   @override
@@ -16,7 +17,7 @@ class AuthPage extends StatelessWidget {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (BuildContext context) => RestaurantsPage()),
+                  builder: (BuildContext context) => CategoryPage()),
             );
           },
         ),

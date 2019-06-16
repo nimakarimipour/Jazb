@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-import './pages/category.dart';
+import './pages/auth.dart';
 
 void main() {
   // debugPaintSizeEnabled = true;
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
           primarySwatch: Colors.deepPurple,
           accentColor: Colors.deepOrange),
-      home: CategoryPage(),
+      home: AuthPage(),
     );
   }
 }
