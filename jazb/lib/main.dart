@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter/rendering.dart';
+import 'package:flutter/rendering.dart';
 
-import './pages/auth.dart';
+import './pages/category.dart';
 
 void main() {
   // debugPaintSizeEnabled = true;
@@ -17,9 +17,9 @@ class MyApp extends StatelessWidget {
       // debugShowMaterialGrid: true,
       theme: ThemeData(
           brightness: Brightness.light,
-          primarySwatch: Colors.yellow,
+          primarySwatch: Colors.deepPurple,
           accentColor: Colors.deepOrange),
-      home: AuthPage(),
+      home: CategoryPage(),
     );
   }
 }

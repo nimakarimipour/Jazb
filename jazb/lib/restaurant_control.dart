@@ -16,7 +16,7 @@ class RestaurantControl extends StatelessWidget {
       onPressed: () {
         addRestaurant({
           'title': 'Narenjestan',
-          'image': 'assets/restaurant_interior_'+ random.nextInt(4).toString() + '.jpg'
+          'image': 'assets/restaurant_interior_'+ random.nextInt(3).toString() + '.jpg'
         });
       },
       child: Text('Add Restaurant'),
