@@ -4,9 +4,8 @@ import './pages/restaurant.dart';
 
 class Restaurants extends StatelessWidget {
   final List<Map<String, String>> restaurants;
-  final Function deleteRestaurant;
 
-  Restaurants(this.restaurants, {this.deleteRestaurant}) {}
+  Restaurants(this.restaurants);
 
   Widget _buildRestaurantItem(BuildContext context, int index) {
     return Card(
@@ -16,7 +15,13 @@ class Restaurants extends StatelessWidget {
             tag: 'ImgTag' + index.toString(),
             child: Image.asset(restaurants[index]['image']),
           ),
-          Text(restaurants[index]['title']),
+          Container(
+            margin: EdgeInsets.only(top: 20),
+            child: Text(
+              restaurants[index]['title'],
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -30,11 +35,7 @@ class Restaurants extends StatelessWidget {
                             restaurants[index]['image'],
                             'ImgTag' + index.toString()),
                       ),
-                    ).then((bool value) {
-                      if (value) {
-                        deleteRestaurant(index);
-                      }
-                    }),
+                    ),
               )
             ],
           )
@@ -51,7 +52,11 @@ class Restaurants extends StatelessWidget {
         itemCount: restaurants.length,
       );
     } else {
-      restaurantCards = Container();
+      restaurantCards = Container(
+        child: Center(
+          child: Text('Nothing to Show'),
+        ),
+      );
     }
     return restaurantCards;
   }

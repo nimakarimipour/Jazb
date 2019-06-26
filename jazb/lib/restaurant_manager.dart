@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 
 import './restaurants.dart';
-import './restaurant_control.dart';
+import 'dart:math';
 
 class RestaurantManager extends StatefulWidget {
-  final Map<String, String> startingRestaurant;
-
-  RestaurantManager({this.startingRestaurant});
-
+  
   @override
   State<StatefulWidget> createState() {
     return _RestaurantManagerState();
@@ -19,39 +16,18 @@ class _RestaurantManagerState extends State<RestaurantManager> {
 
   @override
   void initState() {
-    if (widget.startingRestaurant != null) {
-      _restaurants.add(widget.startingRestaurant);
-    }
     super.initState();
+    Random random = new Random();
+    for(var i = 0; i < 10; i++){
+      _restaurants.add({
+          'title': 'Restaurant Name',
+          'image': 'assets/restaurant_interior_'+ random.nextInt(3).toString() + '.jpg'
+        });
+    }
   }
-
-  @override
-  void didUpdateWidget(RestaurantManager oldWidget) {
-    super.didUpdateWidget(oldWidget);
-  }
-
-  void _addRestaurant(Map<String, String> restaurant) {
-    setState(() {
-      _restaurants.add(restaurant);
-    });
-  }
-
-  void _deleteRestaurant(int index) {
-    setState(() {
-      _restaurants.removeAt(index);
-    });
-  }
-
+  
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          margin: EdgeInsets.all(10.0),
-          child: RestaurantControl(_addRestaurant),
-        ),
-        Expanded(child: Restaurants(_restaurants, deleteRestaurant: _deleteRestaurant))
-      ],
-    );
+    return Restaurants(_restaurants);
   }
 }

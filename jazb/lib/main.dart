@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:jazb/pages/category.dart';
 
 import './pages/auth.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
           primarySwatch: Colors.deepPurple,
           accentColor: Colors.deepOrange),
-      home: AuthPage(),
+      home: CategoryPage(),
     );
   }
 }
