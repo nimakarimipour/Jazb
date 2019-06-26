@@ -27,7 +27,7 @@ class Restaurants extends StatelessWidget {
             children: <Widget>[
               FlatButton(
                 child: Text('Details'),
-                onPressed: () => Navigator.push<bool>(
+                onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (BuildContext context) => RestaurantPage(
