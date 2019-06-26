@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:jazb/pages/category.dart';
-
-import './pages/auth.dart';
 
 void main() {
   // debugPaintSizeEnabled = true;
