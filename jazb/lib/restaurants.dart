@@ -8,38 +8,46 @@ class Restaurants extends StatelessWidget {
   Restaurants(this.restaurants);
 
   Widget _buildRestaurantItem(BuildContext context, int index) {
-    return Card(
-      child: Column(
-        children: <Widget>[
-          Hero(
-            tag: 'ImgTag' + index.toString(),
-            child: Image.asset(restaurants[index]['image']),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 20),
-            child: Text(
-              restaurants[index]['title'],
-              style: TextStyle(fontSize: 20),
+    return GestureDetector(
+      onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext context) => RestaurantPage(
+                  restaurants[index]['title'],
+                  restaurants[index]['image'],
+                  'ImgTag' + index.toString()),
             ),
           ),
-          ButtonBar(
-            alignment: MainAxisAlignment.center,
-            children: <Widget>[
-              FlatButton(
-                child: Text('Details'),
-                onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => RestaurantPage(
-                            restaurants[index]['title'],
-                            restaurants[index]['image'],
-                            'ImgTag' + index.toString()),
-                      ),
-                    ),
-              )
-            ],
-          )
-        ],
+      child: Card(
+        child: Row(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.all(10),
+              child: Hero(
+                tag: 'ImgTag' + index.toString(),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(5),
+                  child: Image.asset(
+                    restaurants[index]['image'],
+                    height: 120,
+                    width: 180,
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
+            ),
+            Column(
+              children: <Widget>[
+                Container(
+                  child: Text(
+                    restaurants[index]['title'],
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

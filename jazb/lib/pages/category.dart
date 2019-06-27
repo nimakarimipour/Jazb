@@ -22,8 +22,8 @@ class CategoryPage extends StatelessWidget {
         child: Stack(
           alignment: Alignment.bottomLeft,
           children: <Widget>[
-            new ClipRRect(
-              borderRadius: new BorderRadius.circular(20),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
               child: Image.asset(_infos[index]['img']),
             ),
             Padding(
