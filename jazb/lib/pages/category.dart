@@ -49,9 +49,78 @@ class CategoryPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Select Category'),
       ),
-      body: ListView.builder(
-        itemBuilder: _categoryItemBuilder,
-        itemCount: _infos.length,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            height: 150,
+            child: Center(
+              child: Text(
+                "Jazzb",
+                style: TextStyle(fontSize: 45, color: Colors.white),
+              ),
+            ),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xFF915FB5), Color(0xFFCA436B)],
+                begin: FractionalOffset.topLeft,
+                end: FractionalOffset.bottomRight,
+                stops: [0.0, 1.0], 
+                tileMode: TileMode.clamp
+              ),
+            ),
+          ),
+          Container(
+            height: 25,
+          ),
+          Expanded(
+            child: GridView.count(
+              childAspectRatio: 1.5,
+              crossAxisCount: 2,
+              mainAxisSpacing: 30.0,
+              crossAxisSpacing: 5.0,
+              children: _infos
+                  .map(
+                    (element) => GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        ListPlacesPage(element['name'])));
+                          },
+                          child: Container(
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 5.0, right: 5.0),
+                              child: Stack(
+                                alignment: Alignment.bottomLeft,
+                                children: <Widget>[
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Image.asset(
+                                      element['img'],
+                                      height: 200,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(16.0),
+                                    child: Text(
+                                      element['name'],
+                                      style: TextStyle(
+                                          fontSize: 25, color: Colors.white),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                  )
+                  .toList(),
+            ),
+          ),
+        ],
       ),
     );
   }
