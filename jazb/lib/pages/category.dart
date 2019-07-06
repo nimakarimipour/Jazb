@@ -3,9 +3,12 @@ import 'package:jazb/pages/list_places_page.dart';
 
 class CategoryPage extends StatelessWidget {
   final List<Map<String, String>> _infos = [
-    {'img': 'assets/restaurant_category.jpg', 'name': 'Restaurants'},
-    {'img': 'assets/groccery_category.jpg', 'name': 'Grocceries'},
-    {'img': 'assets/bar_category.jpg', 'name': 'Bars'},
+    {'img': 'assets/category/fine_dining.jpg', 'name': 'Fine Dining'},
+    {'img': 'assets/category/groccery.jpg', 'name': 'Grocceries'},
+    {'img': 'assets/category/event.jpg', 'name': 'Events'},
+    {'img': 'assets/category/health.jpg', 'name': 'Health'},
+    {'img': 'assets/category/fitness_and_spa.jpg', 'name': 'Fitness and Spa'},
+    {'img': 'assets/category/retail.jpg', 'name': 'Retail'},
   ];
 
   Widget _categoryItemBuilder(BuildContext context, int index) {

@@ -46,9 +46,13 @@ flutter:
   - assets/restaurant_interior_1.jpg
   - assets/restaurant_interior_2.jpg
   - assets/restaurant_interior_3.jpg
-  - assets/restaurant_category.jpg
-  - assets/bar_category.jpg
-  - assets/groccery_category.jpg
+  - assets/restaurant_interior_4.jpg
+  - assets/category/fine_dining.jpg
+  - assets/category/event.jpg
+  - assets/category/fitness_and_spa.jpg
+  - assets/category/groccery.jpg
+  - assets/category/health.jpg
+  - assets/category/retail.jpg
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

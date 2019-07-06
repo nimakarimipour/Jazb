@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 class RestaurantPage extends StatelessWidget {
@@ -28,8 +26,7 @@ class RestaurantPage extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.all(10.0),
-            child: Text(
-                'Lorem ipsum dolor sit amet, nec eleifend aliquam dolor elit lorem volutpat, ut ligula a, ac platea, conubia sagittis donec, tincidunt ornare placerat suspendisse erat pellentesque metus.'),
+            child: Text('Lorem ipsum dolor sit amet, aut adipiscing. Sed lectus nunc dolor, sem vestibulum, nonummy tellus class integer accumsan erat, sed sit, elementum nisl neque. Neque mauris in aptent. Dui ipsum eget penatibus'),
           ),
         ],
       ),

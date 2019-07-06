@@ -37,6 +37,8 @@ class Restaurants extends StatelessWidget {
               ),
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Container(
                   child: Text(
@@ -44,8 +46,27 @@ class Restaurants extends StatelessWidget {
                     style: TextStyle(fontSize: 20),
                   ),
                 ),
+                Container(
+                  child: Text(
+                    'District 10 ∙ 1.7 Mile Away',
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    'Italian',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    '9.7',
+                    style: TextStyle(fontSize: 25, color: Colors.green),
+                  ),
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),
