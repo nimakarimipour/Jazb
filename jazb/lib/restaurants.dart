@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
 import './pages/restaurant.dart';
@@ -5,6 +6,7 @@ import './pages/restaurant.dart';
 class Restaurants extends StatefulWidget {
   final List<Map<String, String>> restaurants;
   Function loadMore;
+
 
   Restaurants(this.restaurants, this.loadMore);
 
@@ -51,7 +53,8 @@ class _RestaurantsState extends State<Restaurants> {
               builder: (BuildContext context) => RestaurantPage(
                   widget.restaurants[index]['title'],
                   widget.restaurants[index]['image'],
-                  'ImgTag' + index.toString()),
+                  'ImgTag' + index.toString(),
+                  ),
             ),
           ),
       child: Card(

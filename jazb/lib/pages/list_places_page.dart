@@ -1,9 +1,11 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
 import '../restaurant_manager.dart';
 
 class ListPlacesPage extends StatelessWidget {
   final String type;
+
 
   ListPlacesPage(this.type);
 

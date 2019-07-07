@@ -1,6 +1,8 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
 class RestaurantPage extends StatelessWidget {
+
   final String title;
   final String imageUrl;
   final String imgTag;

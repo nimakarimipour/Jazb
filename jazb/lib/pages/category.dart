@@ -1,7 +1,10 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:jazb/pages/list_places_page.dart';
 
 class CategoryPage extends StatelessWidget {
+
+
   final List<Map<String, String>> _infos = [
     {'img': 'assets/category/fine_dining.jpg', 'name': 'Fine Dining'},
     {'img': 'assets/category/groccery.jpg', 'name': 'Grocceries'},
@@ -11,36 +14,7 @@ class CategoryPage extends StatelessWidget {
     {'img': 'assets/category/retail.jpg', 'name': 'Retail'},
   ];
 
-  Widget _categoryItemBuilder(BuildContext context, int index) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (BuildContext context) =>
-                    ListPlacesPage(_infos[index]['name'])));
-      },
-      child: Padding(
-        padding: EdgeInsets.all(20.0),
-        child: Stack(
-          alignment: Alignment.bottomLeft,
-          children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.asset(_infos[index]['img']),
-            ),
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                _infos[index]['name'],
-                style: TextStyle(fontSize: 35, color: Colors.white),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -62,12 +36,11 @@ class CategoryPage extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xFF915FB5), Color(0xFFCA436B)],
-                begin: FractionalOffset.topLeft,
-                end: FractionalOffset.bottomRight,
-                stops: [0.0, 1.0], 
-                tileMode: TileMode.clamp
-              ),
+                  colors: [Color(0xFF915FB5), Color(0xFFCA436B)],
+                  begin: FractionalOffset.topLeft,
+                  end: FractionalOffset.bottomRight,
+                  stops: [0.0, 1.0],
+                  tileMode: TileMode.clamp),
             ),
           ),
           Container(
@@ -84,10 +57,12 @@ class CategoryPage extends StatelessWidget {
                     (element) => GestureDetector(
                           onTap: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        ListPlacesPage(element['name'])));
+                              context,
+                              MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    ListPlacesPage(element['name']),
+                              ),
+                            );
                           },
                           child: Container(
                             child: Padding(
