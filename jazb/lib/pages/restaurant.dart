@@ -18,7 +18,7 @@ class RestaurantPage extends StatelessWidget {
         children: <Widget>[
           Hero(
             tag: imgTag,
-            child: Image.asset(imageUrl),
+            child: Image.network(imageUrl),
           ),
           Container(
             padding: EdgeInsets.all(10.0),

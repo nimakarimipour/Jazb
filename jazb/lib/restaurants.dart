@@ -2,10 +2,46 @@ import 'package:flutter/material.dart';
 
 import './pages/restaurant.dart';
 
-class Restaurants extends StatelessWidget {
+class Restaurants extends StatefulWidget {
   final List<Map<String, String>> restaurants;
+  Function loadMore;
 
-  Restaurants(this.restaurants);
+  Restaurants(this.restaurants, this.loadMore);
+
+  @override
+  _RestaurantsState createState() => _RestaurantsState();
+}
+
+class _RestaurantsState extends State<Restaurants> {
+  ScrollController _scrollController = new ScrollController();
+  bool isPerformingRequest = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
+        loadMore();
+      }
+    });
+  }
+
+  loadMore() {
+    if (!isPerformingRequest) {
+      setState(() => isPerformingRequest = true);
+      setState(() {
+        widget.loadMore();
+        isPerformingRequest = false;
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   Widget _buildRestaurantItem(BuildContext context, int index) {
     return GestureDetector(
@@ -13,8 +49,8 @@ class Restaurants extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (BuildContext context) => RestaurantPage(
-                  restaurants[index]['title'],
-                  restaurants[index]['image'],
+                  widget.restaurants[index]['title'],
+                  widget.restaurants[index]['image'],
                   'ImgTag' + index.toString()),
             ),
           ),
@@ -27,11 +63,20 @@ class Restaurants extends StatelessWidget {
                 tag: 'ImgTag' + index.toString(),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(5),
-                  child: Image.asset(
-                    restaurants[index]['image'],
-                    height: 120,
-                    width: 180,
-                    fit: BoxFit.fill,
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                      Center(
+                        child: Image.network(
+                          widget.restaurants[index]['image'],
+                          height: 120,
+                          width: 180,
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -42,18 +87,18 @@ class Restaurants extends StatelessWidget {
               children: <Widget>[
                 Container(
                   child: Text(
-                    restaurants[index]['title'],
+                    widget.restaurants[index]['title'],
                     style: TextStyle(fontSize: 20),
                   ),
                 ),
                 Container(
                   child: Text(
-                    'District 10 ∙ 1.7 Mile Away',
+                    '${widget.restaurants[index]['area']} ∙ ${widget.restaurants[index]['dist']}',
                   ),
                 ),
                 Container(
                   child: Text(
-                    'Italian',
+                    '${widget.restaurants[index]['type']}',
                     style: TextStyle(
                       fontSize: 20,
                     ),
@@ -61,7 +106,7 @@ class Restaurants extends StatelessWidget {
                 ),
                 Container(
                   child: Text(
-                    '9.7',
+                    '${widget.restaurants[index]['rate']}',
                     style: TextStyle(fontSize: 25, color: Colors.green),
                   ),
                 ),
@@ -75,10 +120,11 @@ class Restaurants extends StatelessWidget {
 
   Widget _buildRestaurantList() {
     Widget restaurantCards;
-    if (restaurants.length > 0) {
+    if (widget.restaurants.length > 0) {
       restaurantCards = ListView.builder(
         itemBuilder: _buildRestaurantItem,
-        itemCount: restaurants.length,
+        itemCount: widget.restaurants.length,
+        controller: _scrollController,
       );
     } else {
       restaurantCards = Container(

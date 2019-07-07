@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jazb/pages/camera_test.dart';
 import 'package:jazb/pages/category.dart';
 
 void main() {
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
           primarySwatch: Colors.deepPurple,
           accentColor: Colors.deepOrange),
-      home: CameraTestPage(),
+      home: CategoryPage(),
     );
   }
 }
