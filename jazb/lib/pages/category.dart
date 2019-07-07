@@ -56,7 +56,7 @@ class CategoryPage extends StatelessWidget {
             height: 150,
             child: Center(
               child: Text(
-                "Jazzb",
+                "J  A  Z  Z  B",
                 style: TextStyle(fontSize: 45, color: Colors.white),
               ),
             ),
