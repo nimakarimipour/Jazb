@@ -1,10 +1,7 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:jazb/pages/list_places_page.dart';
+import './list_places_page.dart';
 
 class CategoryPage extends StatelessWidget {
-
-
   final List<Map<String, String>> _infos = [
     {'img': 'assets/category/fine_dining.jpg', 'name': 'Fine Dining'},
     {'img': 'assets/category/groccery.jpg', 'name': 'Grocceries'},
@@ -13,8 +10,6 @@ class CategoryPage extends StatelessWidget {
     {'img': 'assets/category/fitness_and_spa.jpg', 'name': 'Fitness and Spa'},
     {'img': 'assets/category/retail.jpg', 'name': 'Retail'},
   ];
-
-
 
   @override
   Widget build(BuildContext context) {

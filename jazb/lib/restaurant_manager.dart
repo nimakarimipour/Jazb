@@ -1,16 +1,9 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
 import './restaurants.dart';
 import 'dart:math';
 
 class RestaurantManager extends StatefulWidget {
-
-
-
-
-
-
   @override
   State<StatefulWidget> createState() {
     return _RestaurantManagerState();
